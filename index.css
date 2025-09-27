@@ -26,6 +26,7 @@ img{
 
 .center{
     text-align: center;
+    padding: 30px;
 }
 
 h1{
@@ -44,4 +45,11 @@ footer{
 
 nav a:hover{
     color: saddlebrown;
+}
+
+.entre-em-contato{
+    color: sandybrown;
+    justify-content: center;
+    text-align: center;
+    padding: 50px;
 }
