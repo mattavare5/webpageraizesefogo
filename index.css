@@ -53,3 +53,35 @@ nav a:hover{
     text-align: center;
     padding: 50px;
 }
+
+.form-do-contato{
+    justify-content: center;
+    text-align: center;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: saddlebrown;
+    transform: scale(85%);
+}
+
+textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid sandybrown;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+ button:hover {
+    background-color: #45a049;
+}

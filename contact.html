@@ -10,43 +10,55 @@
         <link rel="stylesheet" href="index.css">
     </head>
 
-    <div class="container">
-                <nav>
-                    <ul>
-                        <li>
-                            <a>
-                                <a href="index.html">Home</a>
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                <a href="login.html">Login</a>
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                <a href="aboutus.html">Quem Somos</a>
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                <a href="contact.html">Contato</a>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                
-                <header>
-                    <div class="entre-em-contato">
-                        <h3>Entre em contato conosco!</h3>
-                        <p>
-                            Telefone: (99) 99999-9999<br>
-                            Email: teste@teste
-                        </p>
-                    </div>
-                </header>
-                
     <body>
+        <div class="container">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a>
+                                    <a href="index.html">Home</a>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <a href="login.html">Login</a>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <a href="contact.html">Contato</a>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <header>
+                        <div class="entre-em-contato">
+                            <h3>Entre em contato conosco!</h3>
+                            <p>Nossa equipe ficará muito feliz com a sua mensagem.<br> Nos envie seu feedback, sua dúvida ou sua sugestão, estaremos ansiosos para te responder!</p>
+                        </div>
+
+                        <div class="form-do-contato">
+                            <form action="/enviar-email" method="post">
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nome" name="nome" required>
+
+                                <label for="email">E-mail:</label>
+                                <input type="email" id="email" name="email" required>
+
+                                <br>
+                                <br>
+                                <label for="mensagem">Mensagem:</label>
+                                <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+
+                                <button type="submit">Enviar</button>
+                            </form>
+                        </div>
+                            
+                        
+                    </header>
+                
+    
         
     </body>
 </html>
