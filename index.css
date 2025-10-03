@@ -1,10 +1,29 @@
-/* ===== Contact Form Custom Size ===== */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.is-valid {
+    border-color: #28a745 !important;
+    background-color: #d4edda !important;
+}
+.is-invalid {
+    border-color: #dc3545 !important;
+    background-color: #f8d7da !important;
+}
+
 .contact-form {
     max-width: 700px;
     width: 100%;
     margin: 40px auto;
     padding: 30px;
-    background: #fff;
+    background: saddlebrown;
+    color: #fff;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     display: grid;
@@ -17,7 +36,7 @@ select,
 textarea {
     box-sizing: border-box;
 }
-/* ===== Login Form Custom Size ===== */
+
 .login-form {
     max-width: 350px;
     width: 100%;
@@ -88,13 +107,19 @@ nav a:hover{
     padding: 50px;
 }
 
-/* ===== Formulário ===== */
+.login-header {
+    color: white;
+    justify-content: center;
+    text-align: center;
+    padding: 50px;
+}
+
 form {
     background: saddlebrown;
     width: 100%;
     max-width: 700px;
     padding: 30px;
-    margin: 0 auto; /* centraliza apenas se houver espaço */
+    margin: 0 auto;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     display: grid;
@@ -102,7 +127,7 @@ form {
     gap: 20px;
 }
 
-/* ===== Labels ===== */
+
 .form-label {
     font-weight: 600;
     font-size: 14px;
@@ -111,14 +136,15 @@ form {
     margin-bottom: 6px;
 }
 
-/* ===== Inputs e selects ===== */
+
 .form-control, 
 .form-select {
     width: 100%;
     padding: 10px 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    background: #fafafa;
+    background: #fff;
+    color: #000;
     transition: all 0.3s ease;
     font-size: 14px;
 }
@@ -131,7 +157,7 @@ form {
     box-shadow: 0 0 6px rgba(244, 164, 96, 0.4);
 }
 
-/* ===== Input-group (usuário) ===== */
+
 .input-group {
     display: flex;
     align-items: stretch;
@@ -153,12 +179,12 @@ form {
     border-bottom-left-radius: 0;
 }
 
-/* ===== Checkbox ===== */
+
 .form-check {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    grid-column: 1 / -1; /* ocupa linha inteira */
+    grid-column: 1 / -1;
 }
 
 .form-check-input {
@@ -174,9 +200,9 @@ form {
     line-height: 1.4;
 }
 
-/* ===== Botão ===== */
+
 .btn {
-    grid-column: 1 / -1; /* ocupa linha inteira */
+    grid-column: 1 / -1;
     padding: 12px;
     background: linear-gradient(135deg, sandybrown, #e07b39);
     border: none;
