@@ -1,0 +1,98 @@
+body {
+    color: white;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+    padding: 0px 50px;
+}
+ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    align-items: center;
+    padding: 16px;
+}
+a {
+    color: peru;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover {
+    color: saddlebrown;
+}
+footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 15px;
+}
+.login-header {
+    color: white;
+    justify-content: center;
+    text-align: center;
+    padding: 50px;
+}
+.login-form {
+    max-width: 350px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 24px;
+    background: saddlebrown;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.form-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+    display: block;
+    margin-bottom: 6px;
+}
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    color: #000;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.form-control:focus {
+    border-color: sandybrown;
+    background: #fff;
+    outline: none;
+    box-shadow: 0 0 6px rgba(244, 164, 96, 0.4);
+}
+.btn {
+    width: 120px;
+    align-self: center;
+    grid-column: auto;
+    margin-top: 16px;
+    padding: 12px;
+    background: linear-gradient(135deg, sandybrown, #e07b39);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(224, 123, 57, 0.4);
+}
+.is-valid {
+    border-color: #28a745 !important;
+    background-color: #d4edda !important;
+}
+.is-invalid {
+    border-color: #dc3545 !important;
+    background-color: #f8d7da !important;
+}
