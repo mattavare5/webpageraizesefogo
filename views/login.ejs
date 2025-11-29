@@ -1,0 +1,24 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+<main>
+    <div class="login-header">
+        <h1>Login</h1>
+
+        <form class="login-form" method="POST">
+            <label class="form-label">Usuário</label>
+            <input type="text" name="username" class="form-control" required>
+
+            <label class="form-label">Senha</label>
+            <input type="password" name="password" class="form-control" required>
+
+            <button type="submit" class="btn">Entrar</button>
+
+            <div id="loginFeedback"></div>
+        </form>
+    </div>
+</main>
+
+<script src="/js/login.js"></script>
+
+<%- include("partials/footer") %>
