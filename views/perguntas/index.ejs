@@ -1,0 +1,17 @@
+<%- include("../partials/header") %>
+<%- include("../partials/navbar") %>
+
+<h1>Perguntas</h1>
+
+<a href="/perguntas/nova" class="btn">Nova Pergunta</a>
+
+<ul>
+    <% perguntas.forEach(p => { %>
+        <li>
+            <strong><%= p.titulo %></strong><br>
+            <%= p.descricao %>
+        </li>
+    <% }) %>
+</ul>
+
+<%- include("../partials/footer") %>
