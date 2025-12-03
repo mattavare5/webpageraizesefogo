@@ -1,0 +1,10 @@
+.perguntas-list { padding: 40px; color: white; }
+.lista-perguntas { list-style:none; padding:0; }
+.pergunta-item { padding: 18px; border-radius:8px; background:#111; margin-bottom:12px; }
+.pergunta-item h3 { margin:0 0 6px 0; color: peru; }
+.pergunta-actions { margin-top:8px; }
+.link-like { background:none;border:none;color: #e07b39;cursor:pointer; text-decoration:underline;padding:0;font:inherit; }
+.form-section { max-width:720px;margin:40px auto;padding:20px;background:#111;border-radius:8px; }
+.form-actions { margin-top:12px; display:flex; gap:10px; }
+.btn.alt { background:transparent;color:white;border:1px solid #444; }
+.pagination { display:flex; gap:12px; align-items:center; margin-top:16px; }

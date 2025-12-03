@@ -1,20 +1,25 @@
 <%- include("../partials/header") %>
 <%- include("../partials/navbar") %>
 
-<h1>Criar Pergunta</h1>
+<section class="form-section">
+  <h1><%= pergunta ? "Editar Pergunta" : "Nova Pergunta" %></h1>
 
-<form action="/perguntas/salvar" method="POST" class="contact-form">
+  <form action="<%= pergunta ? ('/perguntas/editar/' + pergunta.id) : '/perguntas/nova' %>" method="POST" class="contact-form">
     <div class="form-group">
-        <label class="form-label">Título</label>
-        <input type="text" name="titulo" class="form-control" required>
+      <label for="titulo">Título</label>
+      <input id="titulo" name="titulo" class="form-control" required value="<%= pergunta ? pergunta.titulo : '' %>">
     </div>
 
     <div class="form-group">
-        <label class="form-label">Descrição</label>
-        <textarea name="descricao" class="form-control" rows="5" required></textarea>
+      <label for="descricao">Descrição</label>
+      <textarea id="descricao" name="descricao" class="form-control" rows="6" required><%= pergunta ? pergunta.descricao : '' %></textarea>
     </div>
 
-    <button type="submit" class="btn">Salvar</button>
-</form>
+    <div class="form-actions">
+      <button type="submit" class="btn">Salvar</button>
+      <a href="/perguntas" class="btn alt">Cancelar</a>
+    </div>
+  </form>
+</section>
 
 <%- include("../partials/footer") %>

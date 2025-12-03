@@ -7,7 +7,7 @@ import sequelize from "./config/database.js";
 import indexRoutes from "./routes/index.js";
 import contatoRoutes from "./routes/contato.js";
 import loginRoutes from "./routes/login.js";
-import perguntaRoutes from "./routes/pergunta.js"; // criado agora
+import perguntasRoutes from "./routes/perguntas.js";
 
 // Para usar __dirname em module ES
 const __filename = fileURLToPath(import.meta.url);
@@ -31,7 +31,7 @@ app.set("view engine", "ejs");
 app.use("/", indexRoutes);
 app.use("/contato", contatoRoutes);
 app.use("/login", loginRoutes);
-app.use("/pergunta", perguntaRoutes);
+app.use("/perguntas", perguntasRoutes);
 
 // Conectar ao banco e iniciar servidor
 sequelize.sync().then(() => {

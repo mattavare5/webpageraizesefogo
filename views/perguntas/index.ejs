@@ -1,32 +1,65 @@
 <%- include("../partials/header") %>
 <%- include("../partials/navbar") %>
 
-<h1>Perguntas</h1>
+<section class="perguntas-list">
+  <div class="page-actions">
+    <h1>Perguntas</h1>
+    <a href="/perguntas/nova" class="btn">Nova Pergunta</a>
+  </div>
 
-<a href="/pergunta/nova" class="btn">Nova Pergunta</a>
+  <% if (perguntas && perguntas.length) { %>
+    <ul class="lista-perguntas">
+      <% perguntas.forEach(p => { %>
+        <li class="pergunta-item">
+          <h3><a href="/perguntas/ver/<%= p.id %>"><%= p.titulo %></a></h3>
+          <p><%= p.descricao.length > 200 ? p.descricao.substring(0,200) + "..." : p.descricao %></p>
 
-<ul>
-    <% perguntas.forEach(p => { %>
-        <li>
-            <strong><%= p.titulo %></strong><br>
-            <%= p.descricao %>
+          <div class="pergunta-actions">
+            <a href="/perguntas/editar/<%= p.id %>">Editar</a>
+            <form action="/perguntas/deletar/<%= p.id %>" method="POST" style="display:inline" onsubmit="return confirm('Deletar essa pergunta?');">
+              <button type="submit" class="link-like">Deletar</button>
+            </form>
+          </div>
         </li>
-    <% }) %>
-</ul>
+      <% }); %>
+    </ul>
 
-<h2>Perguntas Recentes</h2>
+    <nav class="pagination">
+      <% if (currentPage > 1) { %>
+        <a href="?page=<%= currentPage - 1 %>">Anterior</a>
+      <% } %>
+      <span>Página <%= currentPage %> de <%= totalPages %></span>
+      <% if (currentPage < totalPages) { %>
+        <a href="?page=<%= currentPage + 1 %>">Próxima</a>
+      <% } %>
+    </nav>
 
-<ul>
-    <% perguntas.forEach((p) => { %>
-        <li>
-            <a href="/pergunta/<%= p.id %>">
-                <strong><%= p.titulo %></strong>
-            </a>
-            <br>
-            <small><%= p.descricao.substring(0, 60) %>...</small>
-        </li>
-    <% }) %>
-</ul>
+  <% } else { %>
+    <p>Nenhuma pergunta encontrada. Seja o primeiro a criar!</p>
+  <% } %>
+</section>
+
+<section style="margin-top: 40px;">
+    <h2>Perguntas Recentes</h2>
+
+    <% if (perguntas.length === 0) { %>
+        <p>Nenhuma pergunta foi cadastrada ainda.</p>
+    <% } else { %>
+        <ul>
+            <% perguntas.forEach(p => { %>
+                <li style="margin-bottom: 10px;">
+                    <a href="/pergunta/<%= p.id %>" style="font-weight: bold; color: #d58a3b;">
+                        <%= p.titulo %>
+                    </a>
+                </li>
+            <% }) %>
+        </ul>
+    <% } %>
+
+    <a href="/perguntas/nova" class="btn" style="display:inline-block;margin-top:15px;">
+        Criar nova pergunta
+    </a>
+</section>
 
 
 <%- include("../partials/footer") %>

@@ -1,9 +1,18 @@
 <%- include("partials/header") %>
 <%- include("partials/navbar") %>
 
-<h1><%= pergunta.titulo %></h1>
-<p><%= pergunta.descricao %></p>
+<article class="pergunta-detalhe">
+  <h1><%= pergunta.titulo %></h1>
+  <p><%= pergunta.descricao %></p>
+  <p class="meta">Criado em <%= pergunta.createdAt.toLocaleString() %></p>
 
-<a href="/">← Voltar</a>
+  <div class="actions">
+    <a href="/perguntas/editar/<%= pergunta.id %>">Editar</a>
+    <form action="/perguntas/deletar/<%= pergunta.id %>" method="POST" style="display:inline" onsubmit="return confirm('Deletar essa pergunta?');">
+      <button type="submit">Deletar</button>
+    </form>
+    <a href="/perguntas">Voltar</a>
+  </div>
+</article>
 
 <%- include("partials/footer") %>
