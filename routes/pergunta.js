@@ -1,10 +1,41 @@
 import express from "express";
-import PerguntaController from "./controllers/PerguntaController.js";
+import Pergunta from "../models/Pergunta.js";
 
 const router = express.Router();
 
-router.get("/", PerguntaController.index);
-router.get("/nova", PerguntaController.criar);
-router.post("/salvar", PerguntaController.salvar);
+// FORMULÁRIO DE NOVA PERGUNTA
+router.get("/nova", (req, res) => {
+    res.render("novaPergunta", {
+        page: "perguntas"
+    });
+});
+
+// SALVAR PERGUNTA (POST)
+router.post("/nova", async (req, res) => {
+    const { titulo, descricao } = req.body;
+
+    await Pergunta.create({
+        titulo,
+        descricao
+    });
+
+    res.redirect("/");
+});
+
+// MOSTRAR PERGUNTA POR ID
+router.get("/:id", async (req, res) => {
+    const { id } = req.params;
+
+    const pergunta = await Pergunta.findByPk(id);
+
+    if (!pergunta) {
+        return res.redirect("/");
+    }
+
+    res.render("pergunta", {
+        pergunta,
+        page: "perguntas"
+    });
+});
 
 export default router;

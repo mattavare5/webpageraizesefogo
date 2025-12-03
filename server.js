@@ -41,5 +41,3 @@ sequelize.sync().then(() => {
     );
 });
 
-import perguntasRoutes from "./routes/perguntas.js";
-app.use("/perguntas", perguntasRoutes);

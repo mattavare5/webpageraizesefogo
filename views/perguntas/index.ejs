@@ -3,7 +3,7 @@
 
 <h1>Perguntas</h1>
 
-<a href="/perguntas/nova" class="btn">Nova Pergunta</a>
+<a href="/pergunta/nova" class="btn">Nova Pergunta</a>
 
 <ul>
     <% perguntas.forEach(p => { %>
@@ -13,5 +13,20 @@
         </li>
     <% }) %>
 </ul>
+
+<h2>Perguntas Recentes</h2>
+
+<ul>
+    <% perguntas.forEach((p) => { %>
+        <li>
+            <a href="/pergunta/<%= p.id %>">
+                <strong><%= p.titulo %></strong>
+            </a>
+            <br>
+            <small><%= p.descricao.substring(0, 60) %>...</small>
+        </li>
+    <% }) %>
+</ul>
+
 
 <%- include("../partials/footer") %>
