@@ -1,25 +1,43 @@
 <%- include("../partials/header") %>
 <%- include("../partials/navbar") %>
 
-<section class="form-section">
-  <h1><%= pergunta ? "Editar Pergunta" : "Nova Pergunta" %></h1>
+<div class="container pergunta-container">
 
-  <form action="<%= pergunta ? ('/perguntas/editar/' + pergunta.id) : '/perguntas/nova' %>" method="POST" class="contact-form">
-    <div class="form-group">
-      <label for="titulo">Título</label>
-      <input id="titulo" name="titulo" class="form-control" required value="<%= pergunta ? pergunta.titulo : '' %>">
-    </div>
+    <h1 class="titulo-form">
+        <%= pergunta ? "Editar Pergunta" : "Criar Nova Pergunta" %>
+    </h1>
 
-    <div class="form-group">
-      <label for="descricao">Descrição</label>
-      <textarea id="descricao" name="descricao" class="form-control" rows="6" required><%= pergunta ? pergunta.descricao : '' %></textarea>
-    </div>
+    <form action="<%= pergunta ? ('/perguntas/editar/' + pergunta.id) : '/perguntas/nova' %>" 
+          method="POST" 
+          class="pergunta-form">
 
-    <div class="form-actions">
-      <button type="submit" class="btn">Salvar</button>
-      <a href="/perguntas" class="btn alt">Cancelar</a>
-    </div>
-  </form>
-</section>
+        <div class="form-group">
+            <label for="titulo" class="form-label">Título da Pergunta</label>
+            <input 
+                id="titulo" 
+                name="titulo" 
+                class="form-input" 
+                required 
+                value="<%= pergunta ? pergunta.titulo : '' %>">
+        </div>
+
+        <div class="form-group">
+            <label for="descricao" class="form-label">Descrição</label>
+            <textarea 
+                id="descricao" 
+                name="descricao" 
+                class="form-textarea" 
+                rows="6" 
+                required><%= pergunta ? pergunta.descricao : '' %></textarea>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="btn-enviar">Salvar</button>
+            <a href="/perguntas" class="btn-voltar">Cancelar</a>
+        </div>
+
+    </form>
+
+</div>
 
 <%- include("../partials/footer") %>
