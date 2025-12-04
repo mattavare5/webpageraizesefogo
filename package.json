@@ -5,7 +5,7 @@
   "main": "contact.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "start": "node --loader ts-node/esm src/server.ts"
   },
   "author": "Matheus Tavares",
   "license": "ISC",
@@ -16,7 +16,11 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
+    "@types/node": "^24.10.1",
     "nodemon": "^3.1.11",
-    "sequelize-cli": "^6.6.3"
+    "sequelize-cli": "^6.6.3",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
   }
 }

@@ -1,4 +1,3 @@
-/* Container geral */
 .pergunta-container {
     max-width: 800px;
     margin: 40px auto;
@@ -9,7 +8,6 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* Título principal */
 .titulo-form {
     text-align: center;
     color: peru;
@@ -18,14 +16,12 @@
     font-weight: bold;
 }
 
-/* Labels */
 .form-label {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 8px;
 }
 
-/* Inputs */
 .form-input, .form-textarea {
     width: 100%;
     padding: 12px;
@@ -38,7 +34,6 @@
     box-sizing: border-box;
 }
 
-/* Foco */
 .form-input:focus,
 .form-textarea:focus {
     border-color: peru;
@@ -46,7 +41,6 @@
     outline: none;
 }
 
-/* Botões */
 .btn-enviar {
     background: linear-gradient(135deg, peru, #e07b39);
     color: white;
@@ -81,7 +75,6 @@
     color: black;
 }
 
-/* Botões lado a lado */
 .form-buttons {
     margin-top: 25px;
     display: flex;
