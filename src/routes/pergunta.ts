@@ -27,6 +27,45 @@ router.get("/nova", (req, res) => {
   });
 });
 
+/* Página para visualizar (alias usado pela view) */
+router.get("/ver/:id", async (req, res) => {
+  const { id } = req.params;
+  const pergunta = await Pergunta.findByPk(id);
+  if (!pergunta) return res.redirect("/perguntas");
+  res.render("pergunta", {
+    page: "perguntas",
+    titulo: (pergunta as any).titulo,
+    pergunta,
+  });
+});
+
+/* Página de edição (mostrar formulário com dados) */
+router.get("/editar/:id", async (req, res) => {
+  const { id } = req.params;
+  const pergunta = await Pergunta.findByPk(id);
+  if (!pergunta) return res.redirect("/perguntas");
+  res.render("perguntas/form", {
+    page: "perguntas",
+    titulo: "Editar Pergunta",
+    pergunta,
+  });
+});
+
+/* Atualizar pergunta */
+router.post("/editar/:id", async (req, res) => {
+  const { id } = req.params;
+  const { titulo, descricao } = req.body;
+  await Pergunta.update({ titulo, descricao }, { where: { id } });
+  res.redirect("/perguntas");
+});
+
+/* Deletar pergunta */
+router.post("/deletar/:id", async (req, res) => {
+  const { id } = req.params;
+  await Pergunta.destroy({ where: { id } });
+  res.redirect("/perguntas");
+});
+
 /* Página individual */
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
