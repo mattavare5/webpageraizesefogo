@@ -13,7 +13,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -28,12 +28,17 @@ app.use("/contato", contatoRoutes);
 app.use("/login", loginRoutes);
 app.use("/perguntas", perguntaRoutes);
 
-sequelize
-  .sync()
-  .then(() => {
-    console.log("Banco conectado com sucesso (TypeScript)!");
-    app.listen(PORT, () =>
-      console.log(`Servidor rodando em http://localhost:${PORT}`)
-    );
-  })
-  .catch((err: any) => console.error("Erro ao conectar ao banco:", err));
+if (process.env.NODE_ENV !== "test") {
+  sequelize
+    .sync()
+    .then(() => {
+      console.log("Banco conectado com sucesso (TypeScript)!");
+      app.listen(PORT, () =>
+        console.log(`Servidor rodando em http://localhost:${PORT}`)
+      );
+    })
+    .catch((err: any) => console.error("Erro ao conectar ao banco:", err));
+}
+
+export default app;
+
