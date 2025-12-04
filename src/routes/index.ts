@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
   });
 
   res.render("index", {
+    page: "index",
     titulo: "Raízes e Fogo",
     perguntas,
   });

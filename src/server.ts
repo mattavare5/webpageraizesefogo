@@ -2,12 +2,12 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import sequelize from "./config/database";
+import sequelize from "./config/database.js";
 
-import indexRoutes from "./routes/index";
-import contatoRoutes from "./routes/contato";
-import loginRoutes from "./routes/login";
-import perguntaRoutes from "./routes/pergunta";
+import indexRoutes from "./routes/index.js";
+import contatoRoutes from "./routes/contato.js";
+import loginRoutes from "./routes/login.js";
+import perguntaRoutes from "./routes/pergunta.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,7 +26,7 @@ app.set("view engine", "ejs");
 app.use("/", indexRoutes);
 app.use("/contato", contatoRoutes);
 app.use("/login", loginRoutes);
-app.use("/pergunta", perguntaRoutes);
+app.use("/perguntas", perguntaRoutes);
 
 sequelize
   .sync()

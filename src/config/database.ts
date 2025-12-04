@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 const sequelize = new Sequelize({
   dialect: "sqlite",
-  storage: path.resolve(__dirname, "../../database.sqlite"),
+  storage: path.resolve(__dirname, "../../data/database.sqlite"),
   logging: false,
 });
 

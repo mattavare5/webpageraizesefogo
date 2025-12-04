@@ -1,64 +1,45 @@
-<%- include("../partials/header") %>
+<%- include("../partials/header", { page, titulo }) %>
 <%- include("../partials/navbar") %>
 
-<section class="perguntas-list">
-  <div class="page-actions">
-    <a href="/perguntas/nova" class="btn">Nova Pergunta</a>
-  </div>
+<div class="pergunta-container">
+  <h1 class="titulo-form">Perguntas</h1>
 
-  <% if (perguntas && perguntas.length) { %>
-    <ul class="lista-perguntas">
-      <% perguntas.forEach(p => { %>
-        <li class="pergunta-item">
-          <h3><a href="/perguntas/ver/<%= p.id %>"><%= p.titulo %></a></h3>
-          <p><%= p.descricao.length > 200 ? p.descricao.substring(0,200) + "..." : p.descricao %></p>
+  <section class="perguntas-list">
+    <div class="page-actions">
+      <a href="/perguntas/nova" class="btn-enviar" style="display: inline-block; padding: 10px 20px; text-decoration: none; border-radius: 8px;">Nova Pergunta</a>
+    </div>
 
-          <div class="pergunta-actions">
-            <a href="/perguntas/editar/<%= p.id %>">Editar</a>
-            <form action="/perguntas/deletar/<%= p.id %>" method="POST" style="display:inline" onsubmit="return confirm('Deletar essa pergunta?');">
-              <button type="submit" class="link-like">Deletar</button>
-            </form>
-          </div>
-        </li>
-      <% }); %>
-    </ul>
+    <% if (perguntas && perguntas.length) { %>
+      <ul class="lista-perguntas">
+        <% perguntas.forEach(p => { %>
+          <li class="pergunta-item">
+            <h3><a href="/perguntas/ver/<%= p.id %>"><%= p.titulo %></a></h3>
+            <p><%= p.descricao.length > 200 ? p.descricao.substring(0,200) + "..." : p.descricao %></p>
 
-    <nav class="pagination">
-      <% if (currentPage > 1) { %>
-        <a href="?page=<%= currentPage - 1 %>">Anterior</a>
-      <% } %>
-      <span>Página <%= currentPage %> de <%= totalPages %></span>
-      <% if (currentPage < totalPages) { %>
-        <a href="?page=<%= currentPage + 1 %>">Próxima</a>
-      <% } %>
-    </nav>
+            <div class="pergunta-actions">
+              <a href="/perguntas/editar/<%= p.id %>">Editar</a>
+              <form action="/perguntas/deletar/<%= p.id %>" method="POST" style="display:inline" onsubmit="return confirm('Deletar essa pergunta?');">
+                <button type="submit" class="link-like">Deletar</button>
+              </form>
+            </div>
+          </li>
+        <% }); %>
+      </ul>
 
-  <% } else { %>
-    <p>Nenhuma pergunta encontrada. Seja o primeiro a criar!</p>
-  <% } %>
-</section>
+      <nav class="pagination">
+        <% if (currentPage > 1) { %>
+          <a href="?page=<%= currentPage - 1 %>">Anterior</a>
+        <% } %>
+        <span>Página <%= currentPage %> de <%= totalPages %></span>
+        <% if (currentPage < totalPages) { %>
+          <a href="?page=<%= currentPage + 1 %>">Próxima</a>
+        <% } %>
+      </nav>
 
-<section style="margin-top: 40px;">
-    <h2>Perguntas Recentes</h2>
-
-    <% if (perguntas.length === 0) { %>
-        <p>Nenhuma pergunta foi cadastrada ainda.</p>
     <% } else { %>
-        <ul>
-            <% perguntas.forEach(p => { %>
-                <li style="margin-bottom: 10px;">
-                    <a href="/pergunta/<%= p.id %>" style="font-weight: bold; color: #d58a3b;">
-                        <%= p.titulo %>
-                    </a>
-                </li>
-            <% }) %>
-        </ul>
+      <p>Nenhuma pergunta encontrada. Seja o primeiro a criar!</p>
     <% } %>
-
-    <a href="/perguntas/nova" class="btn" style="display:inline-block;margin-top:15px;">
-        Criar nova pergunta
-    </a>
-</section>
-
+  </section>
+</div>
 
 <%- include("../partials/footer") %>

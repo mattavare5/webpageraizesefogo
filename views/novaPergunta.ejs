@@ -1,16 +1,25 @@
-<%- include("partials/header") %>
+<%- include("partials/header", { page, titulo }) %>
 <%- include("partials/navbar") %>
 
-<h1>Criar nova pergunta</h1>
+<div class="pergunta-container">
+    <h1 class="titulo-form">Criar nova pergunta</h1>
 
-<form action="/pergunta/nova" method="POST">
-    <label for="titulo">Título</label>
-    <input type="text" name="titulo" id="titulo" required>
+    <form action="/perguntas/nova" method="POST" class="pergunta-form">
+        <div class="form-group">
+            <label for="titulo" class="form-label">Título</label>
+            <input type="text" name="titulo" id="titulo" class="form-input" required>
+        </div>
 
-    <label for="descricao">Descrição</label>
-    <textarea name="descricao" id="descricao" required></textarea>
+        <div class="form-group">
+            <label for="descricao" class="form-label">Descrição</label>
+            <textarea name="descricao" id="descricao" class="form-textarea" rows="6" required></textarea>
+        </div>
 
-    <button type="submit">Salvar</button>
-</form>
+        <div class="form-buttons">
+            <button type="submit" class="btn-enviar">Salvar</button>
+            <a href="/" class="btn-voltar">Voltar</a>
+        </div>
+    </form>
+</div>
 
 <%- include("partials/footer") %>

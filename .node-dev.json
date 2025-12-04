@@ -1,0 +1,11 @@
+{
+  "restartable": "rs",
+  "ignore": ["node_modules", "dist", ".git"],
+  "verbose": false,
+  "watch": ["src"],
+  "ext": "ts,js,json",
+  "exec": "node --import 'data:text/javascript,import{register}from\"node:module\";import{pathToFileURL}from\"node:url\";register(\"ts-node/esm\",pathToFileURL(\"./\"));' --loader ts-node/esm",
+  "legacy_watch": false,
+  "polling_interval": 1000,
+  "runOnChangeOnly": false
+}

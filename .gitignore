@@ -1,0 +1,10 @@
+node_modules/
+dist/
+database.sqlite
+.env
+.env.local
+*.log
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+.idea/
